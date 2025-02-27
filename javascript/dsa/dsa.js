@@ -137,8 +137,7 @@ const countOccurrences = (array, element) => {
 
 
 
-  // second Function to count occurrences of an element
-
+  
 
 
 

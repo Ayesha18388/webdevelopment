@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <title>bulb</title>
+        </head>
+        <body>
+            <img id="image" src="bulboff.jpg" width="100px">
+            <button id="togglebutton" onclick="handlelight()">Turn On</button>
+
+            <script>
+                const handlelight=()=>{
+                const img=document.getElementById('image');
+                const button=document.getElementById('togglebutton');
+
+                if(img.src.includes('bulboff.jpg')){
+                    img.src='bulbon.jpg';
+                    button.innerText='Turn Off';
+                }else{
+                    img.src='bulboff.jpg';
+                    button.innerText='Turn On';
+                }
+                }
+            </script>
+        </body>
+</html>

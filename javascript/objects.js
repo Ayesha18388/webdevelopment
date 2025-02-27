@@ -106,4 +106,8 @@
   const obj2={d:4, e:5, f:6}
   const merg={...obj1,obj2}
   console.log(merg)
-  
+  let colors = [["red", "#FF0000"], ["green", "#00FF00"], ["blue", "#0000FF"]];
+
+let colorObj = Object.fromEntries(colors);
+
+console.log(colorObj);
