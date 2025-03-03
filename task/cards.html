@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>Color Changing Boxes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" style="background-color: red;" onclick="changeBackground('red')"></div>
+        <div class="box" style="background-color: blue;" onclick="changeBackground('blue')"></div>
+        <div class="box" style="background-color: green;" onclick="changeBackground('green')"></div>
+        <div class="box" style="background-color: yellow;" onclick="changeBackground('yellow')"></div>
+        <div class="box" style="background-color: purple;" onclick="changeBackground('purple')"></div>
+        <div class="box" style="background-color: orange;" onclick="changeBackground('orange')"></div>
+    </div>
+    
+    <script>
+        function changeBackground(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>
