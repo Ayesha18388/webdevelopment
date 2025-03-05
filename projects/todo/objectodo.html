@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List (Object Version)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 5px;
+            padding: 8px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            background: #eee;
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>To-Do List</h2>
+        <input type="text" id="taskInput" placeholder="Enter task">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        let todoList = {
+            tasks: {},
+            count: 0,
+
+            addTask: function() {
+                let taskInput = document.getElementById("taskInput").value;
+                if (taskInput.trim() === "") return;
+                this.count++;
+                this.tasks[this.count] = taskInput;
+                document.getElementById("taskInput").value = "";
+                this.displayTasks();
+            },
+
+            editTask: function(id) {
+                let newTask = prompt("Edit Task:", this.tasks[id]);
+                if (newTask !== null && newTask.trim() !== "") {
+                    this.tasks[id] = newTask;
+                    this.displayTasks();
+                }
+            },
+
+            removeTask: function(id) {
+                delete this.tasks[id];
+                this.displayTasks();
+            },
+
+            displayTasks: function() {
+                let taskList = document.getElementById("taskList");
+                taskList.innerHTML = "";
+                for (let id in this.tasks) {
+                    taskList.innerHTML += `
+                        <li>
+                            ${this.tasks[id]}
+                            <button onclick="todoList.editTask(${id})">Edit</button>
+                            <button onclick="todoList.removeTask(${id})">Remove</button>
+                        </li>
+                    `;
+                }
+            }
+        };
+
+        function addTask() {
+            todoList.addTask();
+        }
+    </script>
+
+</body>
+</html>
